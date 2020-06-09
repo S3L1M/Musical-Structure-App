@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements SongAdapter.SongI
     }
 
     public void play(View v) {
-        Toast.makeText(this,"play", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Play", Toast.LENGTH_SHORT).show();
     }
 
     @Override

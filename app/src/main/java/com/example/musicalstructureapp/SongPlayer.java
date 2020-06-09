@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class SongPlayer extends AppCompatActivity {
 
@@ -15,9 +16,24 @@ public class SongPlayer extends AppCompatActivity {
         setContentView(R.layout.activity_song_player);
     }
 
-    public void play(View v) {}
-    public void next(View v) {}
-    public void prev(View v) {}
-    public void rewind(View v) {}
-    public void forward(View v) {}
+    public void play(View v) {
+        Toast.makeText(this,"Play", Toast.LENGTH_SHORT).show();
+    }
+
+    public void next(View v) {
+        Toast.makeText(this,"Next", Toast.LENGTH_SHORT).show();
+    }
+
+    public void prev(View v) {
+        Toast.makeText(this,"Previous", Toast.LENGTH_SHORT).show();
+    }
+
+    public void rewind(View v) {
+        Toast.makeText(this,"Rewind", Toast.LENGTH_SHORT).show();
+    }
+
+    public void forward(View v) {
+        Toast.makeText(this,"Forward", Toast.LENGTH_SHORT).show();
+    }
+
 }
