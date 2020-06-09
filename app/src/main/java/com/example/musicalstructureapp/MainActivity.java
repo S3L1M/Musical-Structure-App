@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.ReceiverCallNotAllowedException;
 import android.os.Bundle;
 import android.util.Log;
@@ -86,5 +87,7 @@ public class MainActivity extends AppCompatActivity implements SongAdapter.SongI
     @Override
     public void onSongItemClick(Song song) {
         Toast.makeText(this, song.getTitle()+"song clicked", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, SongPlayer.class);
+        startActivity(i);
     }
 }
