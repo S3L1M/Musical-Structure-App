@@ -3,13 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_songs"
         android:layout_width="match_parent"
         android:layout_height="660dp"
-        android:id="@+id/rv_songs"/>
+        android:layout_weight="90"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_weight="10"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimaryDark"
+        android:padding="6dp"
+        android:onClick="playingNow">
 
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/music_icon"
+            android:layout_weight="20"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uploader\nSong Title"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/gray"
+            android:layout_weight="64"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_play_arrow_black_24"
+            android:layout_weight="16"
+            android:onClick="play"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+    </LinearLayout>
 
 </LinearLayout>
