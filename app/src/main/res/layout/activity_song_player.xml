@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/music_icon_large"
+        android:layout_margin="28dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:paddingBottom="16dp">
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_margin="16dp"
+            android:layout_above="@+id/play_pause"
+            android:progress="30"
+            android:max="100"
+            />
+
+
+        <ImageView
+            android:id="@+id/pervious"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_skip_previous_black_24dp"
+            android:layout_toLeftOf="@+id/rewind"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="prev"/>
+        <ImageView
+            android:id="@+id/rewind"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_fast_rewind_black_24dp"
+            android:layout_toLeftOf="@+id/play_pause"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="rewind"/>
+
+        <ImageView
+            android:id="@+id/play_pause"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_play_circle_filled_black_24dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="play"/>
+
+        <ImageView
+            android:id="@+id/forward"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_fast_forward_black_24dp"
+            android:layout_toRightOf="@+id/play_pause"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="forward"/>
+        <ImageView
+            android:id="@+id/next"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_skip_next_black_24dp"
+            android:layout_toRightOf="@+id/forward"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="next"/>
+    </RelativeLayout>
+
+</LinearLayout>
