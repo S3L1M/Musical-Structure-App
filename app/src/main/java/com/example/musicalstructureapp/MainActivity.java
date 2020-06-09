@@ -4,10 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    public void playingNow(View v) {
+        Toast.makeText(this,"go to playing now", Toast.LENGTH_SHORT).show();
+    }
+
+    public void play(View v) {
+        Toast.makeText(this,"play", Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
