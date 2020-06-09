@@ -15,9 +15,15 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
     private final ArrayList<Song> mSongList;
     private SongViewHolder holder;
     private int position;
+    private final SongItemClickListener mOnClickListener;
 
-    public SongAdapter(ArrayList<Song> songList) {
+    public interface SongItemClickListener {
+        void onSongItemClick(Song song);
+    }
+
+    public SongAdapter(ArrayList<Song> songList, SongItemClickListener listener) {
         mSongList = songList;
+        mOnClickListener = listener;
     }
 
     @NonNull
@@ -38,7 +44,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         return mSongList.size();
     }
 
-    class SongViewHolder extends RecyclerView.ViewHolder {
+    class SongViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView uploaderTextView;
         private TextView songTitleTextView;
 
@@ -47,11 +53,17 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
 
             uploaderTextView = (TextView) itemView.findViewById(R.id.tv_uploader);
             songTitleTextView = (TextView) itemView.findViewById(R.id.tv_song_title);
+            itemView.setOnClickListener(this);
         }
 
         public void setHolderSongDetails(Song song) {
             uploaderTextView.setText(song.getUploader());
             songTitleTextView.setText(song.getTitle());
+        }
+
+        @Override
+        public void onClick(View v) {
+            mOnClickListener.onSongItemClick(mSongList.get(getAdapterPosition()));
         }
     }
 }

@@ -1,7 +1,10 @@
 package com.example.musicalstructureapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ReceiverCallNotAllowedException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,7 +12,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SongAdapter.SongItemClickListener {
+    private SongAdapter mAdapter;
+    private RecyclerView mSongList;
 
     public void playingNow(View v) {
         Toast.makeText(this,"go to playing now", Toast.LENGTH_SHORT).show();
@@ -27,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Song> songs = new ArrayList<Song>();
         String[] titles = {"Nightcore - What do I with a boy like you",
                 "Phoenix (ft. Cailin Russo and Chrissy Costanza)",
-                "True Damage - GIANTS (ft. Becky G, Keke Palmer, SOYEON, DUCKWRTH, Thutmose)",
+                "True Damage - GIANTS (ft. Becky G, Keke Palmer, SOYEON)",
                 "Warriyo - Mortals (ft. Laura Brehm)",
                 "Nightcore- Dreamer",
                 "Nightcore - Light It Up",
@@ -70,6 +75,16 @@ public class MainActivity extends AppCompatActivity {
             Log.v("added song", titles[i]+" by "+uploaders[i]);
         }
 
+        mSongList = (RecyclerView) findViewById(R.id.rv_songs);
+        mSongList.setLayoutManager(new LinearLayoutManager(this));
+        mSongList.setHasFixedSize(true);
 
+        mAdapter = new SongAdapter(songs, this);
+        mSongList.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onSongItemClick(Song song) {
+        Toast.makeText(this, song.getTitle()+"song clicked", Toast.LENGTH_SHORT).show();
     }
 }
