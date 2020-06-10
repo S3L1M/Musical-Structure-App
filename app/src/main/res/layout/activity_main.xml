@@ -39,7 +39,7 @@
 
         <ImageButton
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/round_play_arrow_black_24"
             android:layout_weight="16"
             android:onClick="play"
